@@ -12,7 +12,7 @@
 <body>
 <div id="app" class="d-flex flex-column vh-100">
     <div>
-        <?php include __DIR__ . '/includes/nav.php'; ?>
+        <?php include __DIR__ . '/includes/admin-nav.php'; ?>
     </div>
     <div class="flex-grow-1">
         <?= $contenu ?>

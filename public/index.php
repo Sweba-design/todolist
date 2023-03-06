@@ -1,6 +1,6 @@
 <?php
 session_start();
-require './vendor/autoload.php';
+require '../vendor/autoload.php';
 require '../functions.php';
 
 $url = $_SERVER['REQUEST_URI'];
@@ -9,7 +9,6 @@ if(isset($_SESSION['message'])) {
     $message = $_SESSION['message'];
     unset($_SESSION['message']);
 }
-
 
 switch ($url) {
     case '/home':
@@ -38,6 +37,9 @@ switch ($url) {
         break;
     case '/admin':
         renderView('dashboard', 'admin');
+        break;
+    case '/admin/users_traitement':
+        require '../controller/users.php';
         break;
     default:
         require '../views/error.php';
