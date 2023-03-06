@@ -1,21 +1,24 @@
 <?php
 
 $pdo = getDb();
-$email = $_POST['email'] ?? null;
-$password = $_POST['password'] ?? null;
 
-$sql = "select * from users where email=:email and password=:password";
+//On récupère l'utilisateur avec l'email qu'on récupère dans $_POST
+$email = $_POST['email'] ?? null;
+$sql = "select * from users where email=:email";
 $statement = $pdo->prepare($sql);
-$statement->execute(['email' => $email, 'password' => $password]);
+$statement->execute(['email' => $email]);
 $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
+//ensuite on vérifie le mot de passe envoyé avec celui crypté en DB
+$passwordOk = password_verify($_POST['password'], $result[0]['password']);
 
-if(empty($result)) {
+
+if(!$passwordOk) {
     $_SESSION['message'] = 'Email ou mot de passe non valide';
     header('Location: /connexion');
 }else {
     $_SESSION['message'] = 'Connexion réussie !';
-    $_SESSION['user'] = $result;
+    $_SESSION['user'] = $result[0];
     header('Location: /');
 }
 

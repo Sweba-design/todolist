@@ -10,8 +10,16 @@
     <title>Contact</title>
 </head>
 <body>
-<?php include __DIR__ . './includes/nav.php'; ?>
-<?= $contenu ?>
-<?php include __DIR__ . './includes/footer.php'; ?>
+<div id="app" class="d-flex flex-column vh-100">
+    <div>
+        <?php include __DIR__ . '/includes/nav.php'; ?>
+    </div>
+    <div class="flex-grow-1">
+        <?= $contenu ?>
+    </div>
+    <div>
+        <?php include __DIR__ . '/includes/footer.php'; ?>
+    </div>
+</div>
 </body>
 </html>

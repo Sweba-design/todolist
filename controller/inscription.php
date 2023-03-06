@@ -4,7 +4,7 @@ $pdo = getDb();
 $name = $_POST['name'] ?? null;
 $firstname = $_POST['firstname'] ?? null;
 $email = $_POST['email'] ?? null;
-$password = $_POST['password'] ?? null;
+$password = $_POST['password'] ? password_hash($_POST['password'] , PASSWORD_BCRYPT) : null;
 
 $sql = "insert into users (`name`, firstname, email, password) values (:name, :firstname, :email, :password)";
 $statement = $pdo->prepare($sql);

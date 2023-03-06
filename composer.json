@@ -1,0 +1,12 @@
+{
+    "name": "iepsa/todolist",
+    "authors": [
+        {
+            "name": "ThibautGobert",
+            "email": "125729316+ThibautGobert@users.noreply.github.com"
+        }
+    ],
+    "require-dev": {
+        "symfony/var-dumper": "^6.2"
+    }
+}

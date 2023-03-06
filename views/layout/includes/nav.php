@@ -26,7 +26,7 @@
         <?php if($user){ ?>
         <ul class="navbar-nav">
             <li class="nav-item dropstart dropdown">
-                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><?= $user[0]['email'] ?></a>
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><?= $user['email'] ?></a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="/deconnexion">Déconnexion</a></li>
                 </ul>
